@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: zip-obsidian
+expected_outcome: |
+  HTML único e offline na identidade do LMEst-UFU, com todas as seções, tabelas, equações e figuras da nota, e com as discrepâncias da nota apontadas.

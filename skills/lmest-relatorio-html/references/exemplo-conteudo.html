@@ -1,0 +1,186 @@
+<relatorio titulo="Processamento dos dados coletados pelo robô" sobretitulo="Relatório · 29 de outubro de 2026" subtitulo="Da categorização das coletas à comparação acústica entre estados de aperto das cunhas" logos="ufu,lmest"></relatorio>
+
+<section id="resumo" data-nav="Síntese">
+<div class="section-label red">Síntese</div>
+<h2>A amplitude separa a cunha bem solta das demais, mas uma única variável ainda não ordena todos os estados</h2>
+<p class="lead">Processamos as coletas acústicas do robô em cinco etapas: categorização, detecção dos impactos, filtragem, análise espectral e comparação entre cunhas. Também comparamos o comportamento com dados de bancada e reunimos na literatura as próximas características a avaliar.</p>
+<div class="stats">
+<div class="lm-card stat"><div class="num red">0,8359 Pa</div><p>Média dos picos da cunha bem solta, de 2,6 a 2,8 vezes a das outras três condições</p></div>
+<div class="lm-card stat"><div class="num">0,5298 s</div><p>Duração média dos recortes com o robô em movimento, de 2,1 a 3,0 vezes a das coletas com o robô parado</p></div>
+<div class="lm-card stat"><div class="num">30 → 35</div><p>Impactos recortados na mesma coleta ao reduzir o limiar de 3,5 σ para 3 σ</p></div>
+<div class="lm-card stat"><div class="num">6,3 kHz</div><p>Banda de maior energia da cunha bem solta: ≈0,0078 Pa²·Hz, valor lido no gráfico</p></div>
+</div>
+<div class="lm-callout lm-callout--line"><span><b>Alcance destes resultados:</b> cada condição comparada corresponde a uma coleta, e os estados foram avaliados na mesma ranhura. As diferenças indicam caminhos de investigação, sem ainda demonstrar um critério de classificação.</span></div>
+</section>
+
+<section id="categorizacao" data-nav="Categorização dos dados">
+<div class="section-label">Categorização dos dados</div>
+<h2>Cada coleta passou a ter um nome que descreve o ensaio</h2>
+<p class="lead">Substituímos nomes genéricos, como <span class="fn">coleta1_cunhas presas.txt</span>, por um padrão de seis campos, que permite filtrar as coletas pelo próprio nome do arquivo.</p>
+<div class="parts"><div class="part"><div class="section-label">Status do robô</div><div>em-movimento, parado</div></div><div class="part"><div class="section-label">Estado da cunha</div><div>presa, solta, meio-solta, bem-presa</div></div><div class="part"><div class="section-label">Posição do impacto</div><div>1, 2, … ou na</div></div><div class="part"><div class="section-label">Número da ranhura</div><div>1, 2</div></div><div class="part"><div class="section-label">Martelo ativo</div><div>superior, inferior</div></div><div class="part"><div class="section-label">Número da amostra</div><div>01, 05, 16…</div></div></div>
+<h3>Nomes antigos</h3>
+<div class="tw"><table class="lm-table"><thead><tr><th class="">Nome antigo</th></tr></thead><tbody>
+<tr><td class=""><span class="fn">coleta1_cunhas presas.txt</span></td></tr>
+<tr><td class=""><span class="fn">coleta2_cunhas presas.txt</span></td></tr>
+<tr><td class=""><span class="fn">coleta3_cunhas presas.txt</span></td></tr>
+</tbody></table></div>
+<h3>Exemplos do novo padrão</h3>
+<div class="tw"><table class="lm-table"><thead><tr><th class="num">Coleta</th><th class="">Posição de impacto na cunha (1 = inferior e n = superior)</th><th class="">Martelo ativo</th><th class="">Estado da cunha</th><th class="">Status do robô</th><th class="num">Ranhura</th><th class="">Nome do arquivo</th></tr></thead><tbody>
+<tr><td class="num">1</td><td class="">na</td><td class="">superior</td><td class="">presa</td><td class="">em movimento</td><td class="num">1</td><td class=""><span class="fn">em-movimento_presa_na_1_superior_01.txt</span></td></tr>
+<tr><td class="num">5</td><td class="">1</td><td class="">inferior</td><td class="">solta</td><td class="">parado</td><td class="num">1</td><td class=""><span class="fn">parado_solta_1_1_inferior_05.txt</span></td></tr>
+<tr><td class="num">8</td><td class="">1</td><td class="">inferior</td><td class="">meio solta</td><td class="">parado</td><td class="num">1</td><td class=""><span class="fn">parado_meio-solta_1_1_inferior_08.txt</span></td></tr>
+<tr><td class="num">9</td><td class="">2</td><td class="">inferior</td><td class="">meio solta</td><td class="">parado</td><td class="num">1</td><td class=""><span class="fn">parado_meio-solta_2_1_inferior_09.txt</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section id="deteccao" data-nav="Detecção e recorte">
+<div class="section-label">Detecção dos picos e recorte dos eventos</div>
+<h2>O limiar de detecção define quantos impactos recortamos</h2>
+<p class="lead">Usamos como caso de estudo uma coleta de 30 s: robô parado, cunha bem solta, impacto na base da cunha, ranhura 2 e martelo superior ativo. Os picos chegam a cerca de 0,15 Pa e se destacam de um fundo de ruído contínuo.</p>
+<div class="g2">
+<fig src="figuras/Pasted image 20261029140827.png" cap="Sinal de pressão sonora ao longo dos 30 s da coleta."></fig>
+<fig src="figuras/Pasted image 20261029140706.png" cap="Trecho entre 6,5 s e 10 s: pressão normalizada e pressão normalizada filtrada."></fig>
+<fig src="figuras/Pasted image 20261029141739.png" cap="Sinal normalizado, ruído e faixa μ ± 3,5 σ em toda a coleta."></fig>
+<fig src="figuras/Pasted image 20261029141927.png" cap="Ampliação entre 7 s e 10 s: os picos ultrapassam a faixa μ ± 3,5 σ." largura="2000"></fig>
+</div>
+<h3>Efeito do limiar L</h3>
+<p>Com o limiar menor, detectamos mais eventos e os recortes ficam mais curtos. Com L = 3,5 σ, os recortes se estendem até cerca de 2,1 s e incluem picos posteriores, em torno de 1,2 s e 1,45 s. Com L = 3 σ, eles terminam em cerca de 0,55 s.</p>
+<div class="g2">
+<div><div class="eq-head"><eqi>L = 3{,}5\,\sigma</eqi><span class="lm-pill">30 impactos</span></div><fig src="figuras/Pasted image 20261029141137.png" cap="Sobreposição dos 30 impactos recortados com L = 3,5 σ."></fig></div>
+<div><div class="eq-head"><eqi>L = 3\,\sigma</eqi><span class="lm-pill">35 impactos</span></div><fig src="figuras/Pasted image 20261029142027.png" cap="Sobreposição dos 35 impactos recortados com L = 3 σ."></fig></div>
+</div>
+</section>
+
+<section id="filtro" data-nav="Filtro exponencial">
+<div class="section-label">Aplicação do filtro exponencial</div>
+<h2>A janela exponencial reduz o ruído tardio, mas um τ pequeno também atenua o pico</h2>
+<p class="lead">Aplicamos a janela a partir do início do recorte. Como o impacto ocorre em cerca de 0,01 s, com τ = 0,02 o maior pico cai de cerca de 0,15 Pa para cerca de 0,09 Pa. Com τ = 0,5, o pico é praticamente preservado, e o ruído até o fim do recorte é atenuado de forma mais gradual.</p>
+<fig src="figuras/Pasted image 20261029142151.png" cap="Primeira avaliação da janela exponencial em um impacto da coleta." classe="narrow"></fig>
+<abas-fig rotulo="Valor de τ" cap="Um impacto antes e depois da janela exponencial. Selecione o valor de τ para comparar no mesmo enquadramento.">
+<aba rotulo="τ = 0,02" src="figuras/tau_002.png" alt="Sinal original e filtrado de um impacto, com a janela exponencial para τ = 0,02"></aba>
+<aba rotulo="τ = 0,1" src="figuras/tau_01.png" alt="Sinal original e filtrado de um impacto, com a janela exponencial para τ = 0,1"></aba>
+<aba rotulo="τ = 0,5" src="figuras/tau_05.png" alt="Sinal original e filtrado de um impacto, com a janela exponencial para τ = 0,5"></aba>
+</abas-fig>
+<div class="lm-callout note"><span><b>Nota de leitura.</b> A nota original indica o segundo valor como τ = 0,01. Aqui o tratamos como τ = 0,1, porque o arquivo se chama <span class="fn">tau_01.png</span> e a curva da janela decai mais devagar que a de τ = 0,02.</span></div>
+</section>
+
+<section id="espectro" data-nav="Espectro em frequência">
+<div class="section-label">Análise do espectro em frequência</div>
+<h2>A energia do impacto se concentra acima de 1&nbsp;kHz</h2>
+<p class="lead">O espectro médio mostra picos recorrentes perto de 1 kHz, 3,2 kHz, 5,8 kHz, 8 kHz e 11,5 kHz. Para comparar coletas com menos variáveis, agrupamos a energia em bandas com frequências centrais da norma ISO 266, série R10.</p>
+<fig src="figuras/Pasted image 20261029142645.png" cap="Espectro de cada impacto e espectro médio, até cerca de 12,8 kHz." classe="narrow"></fig>
+<div class="lm-card math">
+<h3>Frequências centrais · ISO 266, série R10</h3>
+<div class="pills"><span class="lm-pill">1,0</span><span class="lm-pill">1,25</span><span class="lm-pill">1,60</span><span class="lm-pill">2,0</span><span class="lm-pill">2,5</span><span class="lm-pill">3,15</span><span class="lm-pill">4,0</span><span class="lm-pill">5,0</span><span class="lm-pill">6,3</span><span class="lm-pill">8,0</span><span class="unit">× 10ⁿ Hz</span></div>
+<div class="eqs">
+<div><eq>f_c = \sqrt{f_{\text{inferior}} \cdot f_{\text{superior}}}</eq></div>
+<div><eq>f_{\text{inferior}} = \frac{f_c}{10^{1/20}} \approx 0{,}8913 \cdot f_c</eq></div>
+<div><eq>f_{\text{superior}} = f_c \cdot 10^{1/20} \approx 1{,}1220 \cdot f_c</eq></div>
+<div><eq>E_{\text{banda}} \approx \sum_{k \in [f_1, f_2]} |P[k]|^2 \cdot \Delta f</eq></div>
+</div>
+</div>
+<p class="after">Nessa coleta, a maior energia aparece na banda de 3,15 kHz, seguida pelas de 6,3 kHz e 1 kHz. Entre as bandas de 100 Hz e 3,15 kHz, a energia sobe mais de duas ordens de grandeza.</p>
+<div class="g2">
+<fig src="figuras/parado_solta_3_2_superior_16.txt_energy_bar.png" cap="Energia por banda em escala logarítmica, com a largura real de cada banda."></fig>
+<fig src="figuras/line.png" cap="Os mesmos valores de energia, unidos pela frequência central de cada banda."></fig>
+</div>
+</section>
+
+<section id="tempo" data-nav="Domínio do tempo">
+<div class="section-label">Outras informações do domínio do tempo</div>
+<h2>Cada recorte dura em média 0,365&nbsp;s, com pico médio de 0,1024&nbsp;Pa</h2>
+<p class="lead">Além do espectro, extraímos do domínio do tempo a média dos picos de pressão e a duração média dos recortes, as duas métricas que usamos depois para comparar as cunhas.</p>
+<div class="stats two">
+<div class="lm-card stat"><div class="num">0,1024 Pa</div><p>Média dos picos · robô parado, cunha bem solta, impacto na base, ranhura 2, martelo superior</p></div>
+<div class="lm-card stat"><div class="num">0,3650 s</div><p>Duração média dos recortes · mesma coleta</p></div>
+</div>
+<div class="g2">
+<fig src="figuras/Pasted image 20261029143353.png" cap="Picos de pressão, impactos e média dos picos ao longo da coleta."></fig>
+<fig src="figuras/Pasted image 20261029143428.png" cap="Sobreposição dos 35 impactos recortados, que mostra a variação de duração entre os recortes."></fig>
+</div>
+</section>
+
+<section id="comparacao" data-nav="Comparação entre cunhas">
+<div class="section-label">Comparação entre diferentes cunhas</div>
+<h2>A cunha bem solta se destaca em amplitude e em energia na banda de 6,3&nbsp;kHz</h2>
+<p class="lead">Comparamos quatro coletas na ranhura 1, com o martelo inferior ativo. A cunha bem solta tem a maior média dos picos. O robô em movimento alonga os recortes, sem alterar de forma marcante a média dos picos.</p>
+<div class="tw"><table class="lm-table"><thead><tr><th class="num">Coleta</th><th class="">Posição de impacto (1 = inferior e n = superior)</th><th class="">Martelo ativo</th><th class="">Estado na tabela original</th><th class="">Rótulo nas figuras</th><th class="">Status do robô</th><th class="num">Ranhura</th><th class="">Demais detalhes</th><th class="">Nome do arquivo</th></tr></thead><tbody>
+<tr><td class="num">5</td><td class="">1</td><td class="">inferior</td><td class="">solta</td><td class="">bem solta</td><td class="">parado</td><td class="num">1</td><td class=""></td><td class=""><span class="fn">parado_solta_1_1_inferior_05.txt</span></td></tr>
+<tr><td class="num">8</td><td class="">1</td><td class="">inferior</td><td class="">meio solta</td><td class="">solta</td><td class="">parado</td><td class="num">1</td><td class=""></td><td class=""><span class="fn">parado_meio-solta_1_1_inferior_08.txt</span></td></tr>
+<tr><td class="num">11</td><td class="">1</td><td class="">inferior</td><td class="">bem presa</td><td class="">bem presa</td><td class="">parado</td><td class="num">1</td><td class=""></td><td class=""><span class="fn">parado_bem-presa_1_1_inferior_11.txt</span></td></tr>
+<tr><td class="num">4</td><td class="">na</td><td class="">inferior</td><td class="">presa</td><td class="">presa</td><td class="">em movimento</td><td class="num">1</td><td class="">Robô com velocidade 1 cm/s.</td><td class=""><span class="fn">em-movimento_presa_na_1_inferior_04.txt</span></td></tr>
+</tbody></table></div>
+<div class="lm-callout note"><span><b>Nota de leitura.</b> A coluna “Rótulo nas figuras” é nossa inferência, a partir da ordem dos arquivos no nome do gráfico de energia. As figuras indicam ainda “impacto no topo da cunha” para a posição 1, enquanto a tabela define 1 como inferior. Os gráficos e números abaixo usam os rótulos das figuras.</span></div>
+<div class="g2 metrics">
+<div class="lm-card"><h3>Média dos picos</h3><barras unidade="Pa" destaque="Parado · bem solta">
+<barra rotulo="Parado · bem presa" valor="0.3138"></barra>
+<barra rotulo="Em movimento · presa" valor="0.2957"></barra>
+<barra rotulo="Parado · solta" valor="0.3225"></barra>
+<barra rotulo="Parado · bem solta" valor="0.8359"></barra>
+</barras></div>
+<div class="lm-card"><h3>Duração média dos recortes</h3><barras unidade="s">
+<barra rotulo="Parado · bem presa" valor="0.1751"></barra>
+<barra rotulo="Em movimento · presa" valor="0.5298"></barra>
+<barra rotulo="Parado · solta" valor="0.2488"></barra>
+<barra rotulo="Parado · bem solta" valor="0.184"></barra>
+</barras></div>
+</div>
+<fig src="figuras/Pasted image 20261029143709.png" cap="Sinal temporal das quatro coletas. A coleta com o robô em movimento é a mais longa e tem intervalos sem impacto." largura="3000"></fig>
+<fig src="figuras/Pasted image 20261029143731.png" cap="As mesmas coletas com os picos detectados, os impactos e a média dos picos." largura="3000"></fig>
+<p class="after">Em escala linear, a banda de 6,3 kHz da cunha bem solta domina o gráfico. Em escala logarítmica, a ordem dos estados muda conforme a banda: em 8 kHz a maior energia é da cunha solta, e em 10 kHz é da cunha bem presa. Acima de 5 kHz, a coleta com o robô em movimento fica abaixo das demais.</p>
+<div class="g2">
+<fig src="figuras/Pasted image 20261029143618.png" cap="Energia por banda das quatro coletas, em escala linear."></fig>
+<fig src="figuras/parado_bem-presa_1_1_inferior_11.txt_em-movimento_presa_na_1_inferior_04.txt_parado_meio-solta_1_1_inferior_08.txt_parado_solta_1_1_inferior_05.txt_energy_line 1.png" cap="Energia por banda das quatro coletas, em escala logarítmica."></fig>
+</div>
+</section>
+
+<section id="bancada" data-nav="Dados de bancada">
+<div class="section-label">Dados coletados na bancada</div>
+<h2>Na bancada, a maior energia aparece entre 1&nbsp;kHz e 4&nbsp;kHz</h2>
+<p class="lead">Repetimos a análise em uma cunha de 150 mm, com coletas de 20 s. A cunha solta atinge o maior valor, cerca de 0,0073 Pa²·Hz em 2,5 kHz, enquanto no robô o destaque estava em 6,3 kHz. As duas coletas de cunha presa diferem entre si em quase um fator de 2 em 1,25 kHz, o que dá uma ideia da variação dentro de um mesmo estado.</p>
+<fig src="figuras/Pasted image 20261029143904.png" cap="Sinal temporal das quatro coletas de bancada." largura="3000"></fig>
+<fig src="figuras/Pasted image 20261029143925.png" cap="As mesmas coletas com os picos detectados, os impactos e a média dos picos." largura="3000"></fig>
+<fig src="figuras/Pasted image 20261029144004.png" cap="Energia por banda das coletas de bancada." classe="narrow"></fig>
+<div class="lm-callout note"><span><b>Nota de leitura.</b> Duas séries têm a mesma legenda, “Cunha de 150 mm - Presa”, e a nota não informa o que as diferencia. Os valores desta seção foram lidos nos gráficos e são aproximados.</span></div>
+</section>
+
+<section id="proximos" data-nav="Próximos passos">
+<div class="section-label">Próximos passos</div>
+<h2>Os próximos passos partem da literatura e de novas características</h2>
+<p class="lead">Os trabalhos revisados combinam características acústicas com classificadores e relatam resultados entre 93,33% e 99,6%. Como os conjuntos de dados são diferentes, esses números não são diretamente comparáveis.</p>
+<h3>Revisão da literatura</h3>
+<div class="tw"><table class="lm-table"><thead><tr><th class="">Estudo</th><th class="">Representação/características</th><th class="">Classificador</th><th class="num">Resultado relatado</th></tr></thead><tbody>
+<tr><td class="">Xie et al. (2022)</td><td class="">MFCC e LPCC</td><td class="">Rede neural BP</td><td class="num">98,33% com 24 MFCC</td></tr>
+<tr><td class="">Dou et al. (2025)</td><td class="">Tempo de decaimento, frequência do pico máximo, área de 2.000–4.000 Hz</td><td class="">KNN aprimorado</td><td class="num">Até 99,6%</td></tr>
+<tr><td class="">Park et al. (2024)</td><td class="">Sinal com ruído reduzido por <i>autoencoder</i> CNN; características acústicas</td><td class="">Classificador após redução de ruído</td><td class="num">Sem número de acurácia reproduzido aqui</td></tr>
+<tr><td class="">Wu et al. (2026)</td><td class="">TEO-MFCC, ΔMFCC e Δ²MFCC</td><td class="">CNN–LSTM</td><td class="num">98,7%</td></tr>
+<tr><td class="">Xie et al. (2023)</td><td class="">Cinco características selecionadas de um conjunto inicial de 18</td><td class="">SVM RBF</td><td class="num">93,33%</td></tr>
+</tbody></table></div>
+<h3>Características a serem avaliadas</h3>
+<div class="g2 feats">
+<div class="lm-card"><h4>Fator de forma</h4><div class="fm"><eq>x_{\mathrm{RMS}} = \sqrt{\frac{1}{N}\sum_{i=1}^{N} x_i^2}</eq><eq>F_{\mathrm{forma}} = \frac{x_{\mathrm{RMS}}}{\displaystyle\frac{1}{N}\sum_{i=1}^{N}|x_i|}</eq></div></div>
+<div class="lm-card"><h4>Centroide espectral</h4><div class="fm"><eq>C = \frac{\displaystyle\sum_{k=0}^{K-1} f_k S[k]}{\displaystyle\sum_{k=0}^{K-1} S[k]}</eq></div></div>
+<div class="lm-card"><h4>MFCC · coeficientes cepstrais na escala Mel</h4><div class="fm"><eq>c[q] = \operatorname{IDFT}\left\{\log\left(|X[k]|+\varepsilon\right)\right\}</eq></div></div>
+<div class="lm-card spec"><h4>Espectrogramas e CNN 2D</h4><fig src="figuras/Pasted image 20261029165657.png" cap="Exemplo de espectrograma de uma sequência de impactos." largura="1120"></fig></div>
+</div>
+</section>
+
+<section id="referencias" data-nav="Referências">
+<div class="section-label">Referências</div>
+<h2>Referências consultadas</h2>
+<ol class="refs">
+<li>XIE, X.; LI, C.; LI, X.; CHEN, W. <i>A Stator Slot Wedge Loosening Offline Detection System Based on an Intelligent Maintenance Robot of a Large Hydro Generator</i>. <b>Machines</b>, 2022, 10(8), 655. <a href="https://doi.org/10.3390/machines10080655">doi.org/10.3390/machines10080655</a></li>
+<li>DOU, L.; LI, W.; WANG, B.; ZHANG, T.; CAO, Q. <i>Study on Fault Detection of Generator Slot Wedge Tightness Based on Improved KNN</i>. <b>Machine Learning: Engineering</b>, 2025, 1, 015007. <a href="https://doi.org/10.1088/3049-4761/ae07e2">doi.org/10.1088/3049-4761/ae07e2</a></li>
+<li>PARK, H.-M.; SHON, D.; YOON, T. H.; JUNG, W.-S.; PARK, J.-H.; YOO, D. <i>AI-based Percussive Acoustic Signal Classification for Fastener Strength Inspection of Stator Wedge</i>. <b>ICTC 2024</b>, pp. 2185–2190. <a href="https://doi.org/10.1109/ICTC62082.2024.10827301">doi.org/10.1109/ICTC62082.2024.10827301</a></li>
+<li>WU, P.; WANG, B.; DOU, L.; LI, W. <i>Research on the Diagnosis of Stator Slot Wedge Tightness Condition Based on Vibro-Acoustics</i>. <b>Technical Acoustics</b>, 2026. <a href="https://doi.org/10.16300/j.cnki.1000-3630.25053001">doi.org/10.16300/j.cnki.1000-3630.25053001</a></li>
+<li>XIE, X.; ZHANG, C.; MAO, Y.; CHENG, S.; LI, X.; ZHOU, C.; CHEN, W. <i>Research on Non-destructive Intelligence Detection of Tightness of Stator Slot Wedges of Large Hydro-generator</i>. Preprint, Research Square, 2023. <a href="https://doi.org/10.21203/rs.3.rs-2668933/v1">doi.org/10.21203/rs.3.rs-2668933/v1</a></li>
+<li>PENG, X.; JIA, Z.; GAO, S.; et al. <i>A New Method for Stator Slot Wedge Testing of Large Generators</i>. <b>IEEE Transactions on Dielectrics and Electrical Insulation</b>, 2008, 15(4), 933–940. <a href="https://doi.org/10.1109/TDEI.2008.4591213">doi.org/10.1109/TDEI.2008.4591213</a></li>
+<li>PENG, X.; JIA, Z.; GAO, S.; et al. <i>Laboratory Studies of a New Stator Slot Wedge Tester for HV Generators</i>. <b>IEEE Transactions on Energy Conversion</b>, 2009, 24(1), 146–152. <a href="https://doi.org/10.1109/TEC.2008.2008881">doi.org/10.1109/TEC.2008.2008881</a></li>
+<li>LIU, Y.; LI, Y.; SHI, L. <i>Detection Method of Generator Slot Wedge Looseness Based on DSP and Neural Network</i>. <b>42nd China Control Conference</b>, 2023, pp. 733–738. Referência identificada em bibliografia secundária; texto integral não verificado nesta consolidação.</li>
+<li>DENG, Y.; JIA, Z.; XIA, Y.; et al. <i>Study on Stator Slot Wedge Based on Plank Model and Its Characteristic Parameters</i>. <b>Proceedings of the CSEE</b>, 2011, 31(27), 81–87. <a href="https://doi.org/10.13334/j.0258-8013.pcsee.2011.27.011">doi.org/10.13334/j.0258-8013.pcsee.2011.27.011</a></li>
+<li><i>Research on Non-destructive Detection of Tightness of Stator-slot Wedges of Large Hydro-generator Based on Percussion Signal</i>. Tese relacionada, registrada em <a href="https://www.globethesis.com/?t=2492306731479454">Global Thesis</a>; verificar a relação com o preprint antes de contabilizar como trabalho independente.</li>
+<li>HE, P. et al. <i>Core Looseness Fault Identification Model Based on Mel Spectrogram-CNN</i>. <b>Journal of Physics: Conference Series</b>, 2021, 2137, 012060. <a href="https://doi.org/10.1088/1742-6596/2137/1/012060">doi.org/10.1088/1742-6596/2137/1/012060</a></li>
+<li><i>PCT-Net: A Multi-Scenario Noise-Adaptive Fusion Network for Bolt Loosening Detection</i>. <b>Electronics</b>, 2026. A descrição consultada informa o título e o periódico; autoria e DOI/URL devem ser confirmados antes da citação bibliográfica final.</li>
+<li>BARBOSH, M.; DUNPHY, K.; SADHU, A. <i>Acoustic Emission-Based Damage Localization Using Wavelet-Assisted Deep Learning</i>. <b>Journal of Infrastructure Preservation and Resilience</b>, 2022. DOI/URL não incluído na resposta complementar; verificar os dados bibliográficos antes de citar formalmente.</li>
+</ol>
+</section>

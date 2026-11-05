@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: pptx-apresentacao
+expected_outcome: |
+  Relatório HTML organizado por assunto, não slide a slide, com os dados e figuras relevantes da apresentação e sem informação inventada.
