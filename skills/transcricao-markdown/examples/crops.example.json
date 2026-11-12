@@ -1,0 +1,54 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "image": "page_001.png",
+      "regions": [
+        {
+          "id": "title_abstract",
+          "bbox": [
+            0.04,
+            0.03,
+            0.96,
+            0.32
+          ],
+          "horizontal_parts": 1,
+          "overlap": 0.12
+        },
+        {
+          "id": "body_left",
+          "bbox": [
+            0.05,
+            0.34,
+            0.49,
+            0.96
+          ],
+          "horizontal_parts": 3,
+          "overlap": 0.12
+        },
+        {
+          "id": "body_right",
+          "bbox": [
+            0.51,
+            0.34,
+            0.95,
+            0.96
+          ],
+          "horizontal_parts": 3,
+          "overlap": 0.12
+        }
+      ],
+      "image_regions": [
+        {
+          "id": "figure_1",
+          "bbox": [
+            0.53,
+            0.42,
+            0.94,
+            0.67
+          ]
+        }
+      ]
+    }
+  ]
+}

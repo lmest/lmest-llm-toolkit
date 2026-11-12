@@ -35,28 +35,3 @@ O relatório é salvo ao lado do material (ou onde você pedir), e o Claude info
 pip install Pillow python-pptx
 sudo apt install pandoc libreoffice poppler-utils
 ```
-
-## Alternativa: usar o Design System direto no Claude
-
-Sem instalar a skill, dá para pedir o documento ao Claude (claude.ai) usando o Design System do LMEst, compartilhado como artefato.
-
-1. Acesse o link: https://claude.ai/artifact/QyGsUH1VCCj4CqknL22zyY
-2. Em **Artefatos > Compartilhados com você**, abra **Design System LMEst-UFU**.
-
-   ![Artefatos > Compartilhados com você](imagens/passo-2-compartilhados.png)
-
-3. Clique em **Conversar**.
-
-   ![Botão Conversar](imagens/passo-3-conversar.png)
-
-4. Quando o Claude perguntar se pode ler o artefato, clique em **Permitir neste chat**.
-
-   ![Permitir neste chat](imagens/passo-4-permitir.png)
-
-5. Peça o documento. Exemplo:
-
-   ```text
-   Crie uma apresentação (ou um relatório) com o Design System do LMEst, com base neste material: [anexe o arquivo ou cole o texto]
-   ```
-
-Os requisitos acima valem só para a skill.
