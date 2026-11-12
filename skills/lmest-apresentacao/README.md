@@ -35,6 +35,13 @@ Para ajustar depois, basta pedir:
 
 Os números de página são refeitos automaticamente.
 
+## Exemplos
+
+A pasta [examples/](examples/) traz duas apresentações sobre o mesmo tema, *Filtro de Kalman para Desalinhamento*:
+
+- [Fiiltro de Kalman Desalinhamento - 15jan26.pptx](<examples/Fiiltro de Kalman Desalinhamento - 15jan26.pptx>): apresentação em PPTX utilizada como referência.
+- [Filtro de Kalman para Desalinhamento.html](<examples/Filtro de Kalman para Desalinhamento.html>): versão em HTML produzida pela skill.
+
 ## Estrutura
 
 | Pasta | Conteúdo |
@@ -43,6 +50,7 @@ Os números de página são refeitos automaticamente.
 | `references/` | Design System, regras de slide, catálogo de layouts, animações, roteiro e publicação como artefato |
 | `scripts/` | Extração do material, montagem da capa e do agradecimento, numeração, validação e geração de HTML e PPTX |
 | `assets/` | Logos, parceiros, ícones, fundo institucional e fonte Carlito |
+| `examples/` | Exemplos de apresentação em PPTX e HTML (ver [Exemplos](#exemplos)) |
 
 ## Requisitos
 
