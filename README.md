@@ -8,9 +8,9 @@ A ideia é manter tudo em um só lugar, versionado, para que qualquer pessoa do 
 
 | Habilidade | Tipo | Descrição |
 |---|---|---|
-| [lmest-apresentacao](skills/lmest-apresentacao/) | Skill | Cria e edita apresentações de slides no padrão visual do LMEst-UFU a partir de PPTX, PDF, Word ou Markdown, com saída em HTML offline, PPTX editável e/ou artefato Slides. |
-| [lmest-relatorio-html](skills/lmest-relatorio-html/) | Skill | Gera um relatório técnico em HTML único e offline, com a identidade visual do LMEst-UFU, a partir de Markdown ou nota do Obsidian, zip com anexos, PDF ou PPTX. |
-| [transcricao-markdown](skills/transcricao-markdown/) | Skill | Transcreve PDFs de artigos, teses e relatórios técnicos para Markdown fiel, com equações em LaTeX, tabelas em Markdown e figuras recortadas em imagens. |
+| [lmest-apresentacao](skills/lmest-apresentacao/) | Skill | Cria e edita apresentações de slides respeitando o padrão visual do LMEst com base em arquivos PPTX, PDF, Word ou Markdown, com saída em HTML offline, PPTX e/ou artefato Slides do Claude. |
+| [lmest-relatorio-html](skills/lmest-relatorio-html/) | Skill | Gera um relatório técnico em HTML respeitando a identidade visual do LMEst, a partir arquivos Markdown, PDF ou PPTX. |
+| [transcricao-markdown](skills/transcricao-markdown/) | Skill | Transcreve PDFs de artigos, teses e relatórios técnicos em Markdown, com equações em LaTeX, tabelas em Markdown e figuras recortadas em imagens. |
 
 Cada skill é uma pasta autocontida: um `SKILL.md` (instruções e metadados) mais scripts, docs e assets de apoio.
 
@@ -28,21 +28,19 @@ git clone https://github.com/ViniciusTxC3/lmest-llm-toolkit.git
 
 O Claude Code lê habilidades da pasta `.claude/`.
 
-**Jeito mais simples:** não precisa copiar nada à mão. Basta passar ao Claude Code o link da pasta da skill (no GitHub) ou o caminho dela no seu computador, e pedir que ele a instale para você. Exemplo:
+**Jeito mais simples:** Basta passar ao Claude Code o link da pasta da skill (no GitHub) ou o caminho dela no seu computador, e pedir que ele a instale para você. Exemplo:
 
 ```text
-Instale no meu projeto a skill que está em https://github.com/ViniciusTxC3/lmest-llm-toolkit/tree/main/skills/lmest-relatorio-html
+Instale para mim a skill https://github.com/ViniciusTxC3/lmest-llm-toolkit/tree/main/skills/lmest-relatorio-html
 ```
 
 Ou, se você já clonou o repositório:
 
 ```text
-Instale no meu projeto a skill que está em ~/lmest-llm-toolkit/skills/lmest-relatorio-html
+Instale para mim a skill ~/lmest-llm-toolkit/skills/lmest-relatorio-html
 ```
 
-Para instalar para todos os seus projetos, peça que ela seja instalada globalmente, em `~/.claude/skills/`.
-
-Se preferir fazer manualmente, siga os passos abaixo.
+Se preferir realizar a instalação da skill manualmente, siga os passos abaixo.
 
 1. Na raiz do seu projeto, crie a pasta `.claude/` (se ainda não existir).
 2. Copie o que quiser usar para dentro dela:
@@ -80,7 +78,7 @@ O Antigravity lê workflows e regras da pasta `.agent/` no projeto (global: `~/.
 
 ## Design System do LMEst
 
-O Design System é um manual de instruções que possibilita que o Claude crie documentos (como relatórios e apresentações) usando o padrão visual do LMEst. Sem instalar nenhuma skill, dá para pedir o documento ao Claude usando o Design System do LMEst, compartilhado como artefato.
+O Design System é um manual de instruções que possibilita que o Claude crie documentos (como relatórios e apresentações) usando o padrão visual do LMEst. Sem instalar nenhuma skill, é possível pedir que o Claude produza um documento usando o Design System do LMEst, compartilhado como artefato.
 
 1. Acesse o link: https://claude.ai/artifact/QyGsUH1VCCj4CqknL22zyY
 2. Em **Artefatos > Compartilhados com você**, abra **Design System LMEst-UFU**.
