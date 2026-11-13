@@ -21,7 +21,7 @@ Em todos os ambientes o princípio é o mesmo: **copiar a habilidade desejada pa
 Primeiro, clone o repositório:
 
 ```bash
-git clone https://github.com/ViniciusTxC3/lmest-llm-toolkit.git
+git clone https://github.com/lmest/lmest-llm-toolkit.git
 ```
 
 ### Claude Code
@@ -31,13 +31,13 @@ O Claude Code lê habilidades da pasta `.claude/`.
 **Jeito mais simples:** Basta passar ao Claude Code o link da pasta da skill (no GitHub) ou o caminho dela no seu computador, e pedir que ele a instale para você. Exemplo:
 
 ```text
-Instale para mim a skill https://github.com/ViniciusTxC3/lmest-llm-toolkit/tree/main/skills/lmest-relatorio-html
+Instale para mim a skill https://github.com/lmest/lmest-llm-toolkit/tree/main/skills/lmest-relatorio-html
 ```
 
 Ou, se você já clonou o repositório:
 
 ```text
-Instale para mim a skill ~/lmest-llm-toolkit/skills/lmest-relatorio-html
+Instale para mim a skill <caminho-do-clone>/skills/lmest-relatorio-html
 ```
 
 Se preferir realizar a instalação da skill manualmente, siga os passos abaixo.
