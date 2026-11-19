@@ -20,10 +20,10 @@ As regras completas estão em [SKILL.md](SKILL.md).
 
 ## Exemplos
 
-- Artigo original: [meder_2026.pdf](examples/meder_2026/meder_2026.pdf)
-- Transcrição: [Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole.md](<examples/meder_2026/Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole/Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole.md>)
-- Figuras recortadas: [images/](<examples/meder_2026/Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole/images/>)
-- Modelo de `crops.json`: [crops.example.json](examples/crops.example.json), com regiões de leitura para páginas em duas colunas e uma região de figura. Ele serve para planejar recortes de leitura quando o layout exige (ver [SKILL.md](SKILL.md)).
+- Artigo original: [meder_2026.pdf](../../exemplos/transcricao-markdown/meder_2026/meder_2026.pdf)
+- Transcrição: [Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole.md](<../../exemplos/transcricao-markdown/meder_2026/Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole/Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole.md>)
+- Figuras recortadas: [images/](<../../exemplos/transcricao-markdown/meder_2026/Reinforcement Learning for Online Gain Scheduling in LQR - Application to the Cart-Pole/images/>)
+- Modelo de `crops.json`: [crops.example.json](references/crops.example.json), com regiões de leitura para páginas em duas colunas e uma região de figura. Ele serve para planejar recortes de leitura quando o layout exige (ver [SKILL.md](SKILL.md)).
 
 ## Requisitos
 

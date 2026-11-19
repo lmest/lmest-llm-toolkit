@@ -27,7 +27,7 @@ O relatório é salvo ao lado do material (ou onde você pedir), e o Claude info
 
 ## Exemplo
 
-O relatório [relatorio_2026-10-29.html](examples/relatorio_2026-10-29.html), na pasta [examples/](examples/), mostra o formato que a skill gera. É o relatório "Processamento dos dados coletados pelo robô", com índice lateral, equações em LaTeX e figuras. Por ser um arquivo único, ele abre no navegador sem depender de internet.
+O relatório [relatorio_2026-10-29.html](../../exemplos/lmest-relatorio-html/relatorio_2026-10-29.html), na pasta [exemplos/lmest-relatorio-html/](../../exemplos/lmest-relatorio-html/) da raiz do repositório, mostra o formato que a skill gera. É o relatório "Processamento dos dados coletados pelo robô", com índice lateral, equações em LaTeX e figuras. Por ser um arquivo único, ele abre no navegador sem depender de internet.
 
 ## Requisitos
 

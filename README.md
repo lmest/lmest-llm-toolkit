@@ -14,6 +14,16 @@ A ideia é manter tudo em um só lugar, versionado, para que qualquer pessoa do 
 
 Cada skill é uma pasta autocontida: um `SKILL.md` (instruções e metadados) mais scripts, docs e assets de apoio.
 
+## Exemplos
+
+A pasta [exemplos/](exemplos/) reúne exemplos de entrada e saída de cada skill. Eles ficam fora das pastas das skills para não pesar a instalação: ao copiar uma skill para o seu projeto, os exemplos não vão junto.
+
+| Skill | Exemplos |
+|---|---|
+| lmest-apresentacao | [Fiiltro de Kalman Desalinhamento - 15jan26.pptx](<exemplos/lmest-apresentacao/Fiiltro de Kalman Desalinhamento - 15jan26.pptx>) (apresentação de referência) e [Filtro de Kalman para Desalinhamento.html](<exemplos/lmest-apresentacao/Filtro de Kalman para Desalinhamento.html>) (versão produzida pela skill) |
+| lmest-relatorio-html | [relatorio_2026-10-29.html](exemplos/lmest-relatorio-html/relatorio_2026-10-29.html): relatório "Processamento dos dados coletados pelo robô", gerado pela skill |
+| transcricao-markdown | [meder_2026/](exemplos/transcricao-markdown/meder_2026/): artigo original em PDF, transcrição em Markdown e figuras recortadas |
+
 ## Como usar
 
 Em todos os ambientes o princípio é o mesmo: **copiar a habilidade desejada para a pasta que a ferramenta lê**, no projeto (escopo local) ou no diretório do usuário (escopo global).
@@ -103,5 +113,5 @@ O Design System é um manual de instruções que possibilita que o Claude crie d
 
 1. Crie a habilidade em uma pasta própria dentro de `skills/` (ou `.claude/agents/`).
 2. Inclua um `SKILL.md` com `name` e `description` claros, dizendo **quando** usar a habilidade.
-3. Documente dependências e exemplos de uso em um `README.md` dentro da pasta.
+3. Documente dependências e exemplos de uso em um `README.md` dentro da pasta. Arquivos de exemplo (entradas e saídas) vão em `exemplos/<nome-da-skill>/`, na raiz, e não dentro da skill.
 4. Abra um pull request.
