@@ -56,3 +56,7 @@ A pasta [exemplos/lmest-apresentacao/](../../exemplos/lmest-apresentacao/), na r
 - **Sempre:** Python 3 com Pillow, BeautifulSoup, python-pptx, PyMuPDF e matplotlib. Se faltar algum pacote, o script mostra o comando de instalação.
 - **Material em Word:** pandoc.
 - **Imagens das páginas** (PDF, PPTX e Word): poppler (`pdftoppm`) e LibreOffice.
+
+## Autoria
+
+Skill criada por Arthur Iasbeck (LMEst-UFU).

@@ -4,7 +4,7 @@ Skill do Claude Code que transcreve o PDF de um documento técnico ou científic
 
 ## Como usar
 
-Peça ao Claude, indicando o PDF:
+Peça ao agente, indicando o PDF:
 
 > Transcreva o artigo `caminho/do/artigo.pdf` para Markdown.
 
@@ -27,8 +27,19 @@ As regras completas estão em [SKILL.md](SKILL.md).
 
 ## Requisitos
 
-Python 3 com PyMuPDF (1.24.3 ou superior) e Pillow:
+Python 3 com PyMuPDF (1.24.3 ou superior) e Pillow. Execute o comando a partir da pasta da skill:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
+
+Se o sistema recusar a instalação com `externally-managed-environment` (comum em Ubuntu e Debian), use um ambiente virtual:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+```
+
+## Autoria
+
+Skill criada por Arthur Iasbeck (LMEst-UFU).
