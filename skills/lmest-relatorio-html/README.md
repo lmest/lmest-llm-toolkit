@@ -23,7 +23,7 @@ Skill do Claude Code que transforma um material técnico (nota em Markdown/Obsid
    - Destaque a equação da força em um painel.
    - Troque o título da seção de resultados.
 
-O relatório é salvo ao lado do material (ou onde você pedir), e o Claude informa os pontos a confirmar.
+O relatório é salvo ao lado do material (ou onde você pedir), e o agente informa os pontos a confirmar.
 
 ## Exemplo
 
@@ -39,3 +39,7 @@ O relatório [relatorio_2026-10-29.html](../../exemplos/lmest-relatorio-html/rel
 pip install Pillow python-pptx
 sudo apt install pandoc libreoffice poppler-utils
 ```
+
+## Autoria
+
+Skill criada por Arthur Iasbeck (LMEst-UFU).
